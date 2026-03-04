@@ -1,10 +1,11 @@
 node_modules/
 n__pycache__/
-n*.pyc
+.env/
+uploads/
+*.pyc
 *.pyc
 *.pyo
 *.pyd
-n.venv/
-n.env/
-nuploads/
-n*.db
+.venv/
+*.db
+.python-version
