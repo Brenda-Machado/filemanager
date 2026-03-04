@@ -1,0 +1,10 @@
+node_modules/
+n__pycache__/
+n*.pyc
+*.pyc
+*.pyo
+*.pyd
+n.venv/
+n.env/
+nuploads/
+n*.db
