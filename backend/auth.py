@@ -1,5 +1,5 @@
 """
-File Manager - auth.py
+File Manager - backend/auth.py
 """
 
 from datetime import datetime, timedelta, timezone
