@@ -1,4 +1,4 @@
-// File Manager - authContext.tsx
+// File Manager - AuthContext.tsx
 
 import {
   createContext,
