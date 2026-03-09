@@ -3,11 +3,11 @@
 Aplicação web full-stack para upload, listagem, download e exclusão de arquivos com controle de acesso por usuário autenticado.
 
 Desenvolvimento:
-    + Frontend: React + TypeScript + Vite;
-    + Backend: Python + FastAPI;
-    + Banco de Dados: SQLite via SQLAlchemy2;
-    + Armazenamento de arquivos: Filesystem local (`backend/uploads/`);
-    + Autenticação: JWT (Bearer token) + bcrypt.
+- Frontend: React + TypeScript + Vite;
+- Backend: Python + FastAPI;
+- Banco de Dados: SQLite via SQLAlchemy2;
+- Armazenamento de arquivos: Filesystem local (`backend/uploads/`);
+- Autenticação: JWT (Bearer token) + bcrypt.
 
 ## Funcionalidades implementadas
 
@@ -52,45 +52,45 @@ Os arquivos enviados ficam em `backend/uploads/` e o banco em `backend/filemanag
 ## Arquitetura
 
 ```
-| Caminho | Tipo | Descrição |
-|---|---|---|
-| `filemanager/` | Diretório raiz | Projeto principal |
-| `docker-compose.yml` | Arquivo | Orquestração dos serviços |
-| `backend/` | Pasta | Serviço Python |
-| `backend/Dockerfile` | Arquivo | Build da imagem do backend |
-| `backend/requirements.txt` | Arquivo | Dependências Python |
-| `backend/main.py` | Arquivo | Entrypoint: app FastAPI, CORS e routers |
-| `backend/database.py` | Arquivo | Engine SQLAlchemy + sessão + get_db |
-| `backend/models.py` | Arquivo | ORM: User, FileRecord |
-| `backend/schemas.py` | Arquivo | Schemas Pydantic (validação) |
-| `backend/auth.py` | Arquivo | bcrypt, JWT e dependência get_current_user |
-| `backend/routers/` | Pasta | Rotas da API |
-| `backend/routers/auth.py` | Arquivo | POST /auth/register, POST /auth/login |
-| `backend/routers/files.py` | Arquivo | CRUD de arquivos |
-| `backend/uploads/` | Pasta | Armazena arquivos enviados (criada automaticamente) |
-| `frontend/` | Pasta | Serviço React |
-| `frontend/Dockerfile` | Arquivo | Build da imagem do frontend |
-| `frontend/index.html` | Arquivo | HTML base |
-| `frontend/src/` | Pasta | Código fonte React |
-| `frontend/src/main.tsx` | Arquivo | Entrypoint React |
-| `frontend/src/App.tsx` | Arquivo | Roteamento e proteção de rotas |
-| `frontend/src/api/` | Pasta | Camada de comunicação com API |
-| `frontend/src/api/client.ts` | Arquivo | Instância Axios com interceptors de auth |
-| `frontend/src/api/auth.ts` | Arquivo | register(), login() |
-| `frontend/src/api/files.ts` | Arquivo | list(), upload(), download(), delete() |
-| `frontend/src/context/` | Pasta | Contextos globais |
-| `frontend/src/context/AuthContext.tsx` | Arquivo | Estado global de autenticação |
-| `frontend/src/pages/` | Pasta | Páginas da aplicação |
-| `frontend/src/pages/LoginPage.tsx` | Arquivo | Tela de login |
-| `frontend/src/pages/RegisterPage.tsx` | Arquivo | Tela de registro |
-| `frontend/src/pages/DashboardPage.tsx` | Arquivo | Painel principal |
-| `frontend/src/components/` | Pasta | Componentes reutilizáveis |
-| `frontend/src/components/UploadZone.tsx` | Arquivo | Drag-and-drop com barra de progresso |
-| `frontend/src/components/FileList.tsx` | Arquivo | Listagem com download e delete inline |
-| `frontend/src/utils/` | Pasta | Utilitários |
-| `frontend/src/utils/error.ts` | Arquivo | Extração de mensagem de erro da API |
-| `frontend/src/utils/format.ts` | Arquivo | formatBytes, formatDate, mimeIcon |
-| `frontend/package.json` | Arquivo | Dependências e scripts do frontend |
+filemanager/
+├── docker-compose.yml
+│
+├── backend/                      # Serviço Python
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── main.py                   # Entrypoint: app FastAPI, CORS, routers
+│   ├── database.py               # Engine SQLAlchemy + sessão + get_db
+│   ├── models.py                 # ORM: User, FileRecord
+│   ├── schemas.py                # Pydantic: validação de entrada e saída
+│   ├── auth.py                   # bcrypt, JWT, dependência get_current_user
+│   ├── routers/
+│   │   ├── auth.py               # POST /auth/register  POST /auth/login
+│   │   └── files.py              # CRUD de arquivos
+│   └── uploads/                  # Arquivos enviados (criado automaticamente)
+│
+└── frontend/                     # Serviço React
+    ├── Dockerfile
+    ├── index.html
+    ├── src/
+    │   ├── main.tsx              # Entrypoint React
+    │   ├── App.tsx               # Roteamento e proteção de rotas
+    │   ├── api/
+    │   │   ├── client.ts         # Instância Axios com interceptors de auth
+    │   │   ├── auth.ts           # register(), login()
+    │   │   └── files.ts          # list(), upload(), download(), delete()
+    │   ├── context/
+    │   │   └── AuthContext.tsx   # Estado global de autenticação
+    │   ├── pages/
+    │   │   ├── LoginPage.tsx
+    │   │   ├── RegisterPage.tsx
+    │   │   └── DashboardPage.tsx
+    │   ├── components/
+    │   │   ├── UploadZone.tsx    # Drag-and-drop com barra de progresso
+    │   │   └── FileList.tsx      # Listagem com download e delete inline
+    │   └── utils/
+    │       ├── error.ts          # Extração de mensagem de erro da API
+    │       └── format.ts         # formatBytes, formatDate, mimeIcon
+    └── package.json
 ```
 
 ## Decisões técnicas
@@ -127,4 +127,4 @@ A extensão é validada no frontend antes de enviar, pois evita tráfego desnece
 
 ## Uso de IA
 
-A aplicação utilizou a IA Claude Sonnet 4.5, que auxiliou com a organização dos componentes e folders e a testagem da autenticação de usuários. Assim como ajustes/solução de bugs da interface gráfica, criação de padrão quadriculado e logo.
+A aplicação utilizou a IA Claude Sonnet 4.5, que auxiliou com a organização dos componentes e folders e a testagem da autenticação de usuários. Assim como ajustes/solução de bugs da interface gráfica, criação de padrão quadriculado e logo. Organização visual da arquitetura no README.md.
